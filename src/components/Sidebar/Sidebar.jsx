@@ -11,6 +11,8 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useTheme } from "@mui/styles";
+import useStyles from './styles';
+
 
 const categories = [
 	{ label: "Popular", value: "popular" },
