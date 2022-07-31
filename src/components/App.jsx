@@ -14,12 +14,7 @@ const App = () => {
 			<main className="classes.content">
 				<div className="classes.toolbar" />
 				<Switch>
-					{" "}
-					{/* Only one route will be visible at the time */}
-					<Route exact path="/">
-						<h1>Home</h1>
-					</Route>
-					<Route exact path="/movies">
+					<Route exact path={["/", "/movies"]}>
 						<Movies />
 					</Route>
 					<Route exact path="/movies/:id">

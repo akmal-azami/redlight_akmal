@@ -13,11 +13,10 @@ import { Link } from "react-router-dom";
 import { useTheme } from "@mui/styles";
 import { useDispatch, useSelector } from "react-redux";
 
-import { useGetGenresQuery } from "../../services/TMDB";
 import { selectGenreOrCategory } from "../../features/currentGenreOrCategory";
+import { useGetGenresQuery } from "../../services/TMDB";
 import useStyles from "./styles";
 import genreIcons from "../../assets/genres";
-import { NearMeDisabledRounded } from "@mui/icons-material";
 
 const categories = [
 	{ label: "Popular", value: "popular" },
@@ -38,9 +37,10 @@ const Sidebar = ({ setMobileOpen }) => {
 	const classes = useStyles();
 	const { data, isFetching } = useGetGenresQuery();
 	const dispatch = useDispatch();
-	// useEffect(() => {
-	// 	setMobileOpen(false);
-	// }, [genreIdOrCategoryName]);
+
+	useEffect(() => {
+		setMobileOpen(false);
+	}, [genreIdOrCategoryName]);
 
 	return (
 		<>
@@ -48,13 +48,12 @@ const Sidebar = ({ setMobileOpen }) => {
 				<img
 					className={classes.image}
 					src={theme.palette.mode === "light" ? redLogo : blueLogo}
-					alt="FILMPIRE LOGO"
+					alt="Filmpire logo"
 				/>
 			</Link>
 			<Divider />
-
 			<List>
-				<ListSubheader> Categories </ListSubheader>
+				<ListSubheader>Categories</ListSubheader>
 				{categories.map(({ label, value }) => (
 					<Link key={value} className={classes.links} to="/">
 						<ListItem onClick={() => dispatch(selectGenreOrCategory(value))} button>
@@ -70,13 +69,12 @@ const Sidebar = ({ setMobileOpen }) => {
 					</Link>
 				))}
 			</List>
-
 			<Divider />
 			<List>
-				<ListSubheader> Genres </ListSubheader>
+				<ListSubheader>Genres</ListSubheader>
 				{isFetching ? (
 					<Box display="flex" justifyContent="center">
-						<CircularProgress size="4rem" />
+						<CircularProgress />
 					</Box>
 				) : (
 					data.genres.map(({ name, id }) => (

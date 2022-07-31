@@ -16,7 +16,7 @@ import {
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useStyles from "./styles";
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/styles";
 import { Sidebar } from "..";
 
 const NavBar = () => {
