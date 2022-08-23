@@ -4,14 +4,18 @@ export default makeStyles((theme) => ({
 	movie: {
 		padding: "10px",
 	},
-	title: {
-		color: theme.palette.text.primary,
-		textOveflow: "elipsis",
-		whiteSpace: "nowrap",
-		overflow: "hidden",
-		marginTop: "10px",
-		marginBottom: 0,
-		textAlign: "center",
+	links: {
+		alignItems: "center",
+		fontWeight: "bolder",
+		textDecoration: "none",
+		[theme.breakpoints.up("xs")]: {
+			display: "flex",
+			flexDirection: "column",
+		},
+		"&:hover": {
+			cursor: "pointer",
+			textDecoration: "none",
+		},
 	},
 	image: {
 		borderRadius: "20px",
@@ -21,17 +25,14 @@ export default makeStyles((theme) => ({
 			transform: "scale(1.05)",
 		},
 	},
-	links: {
-		alignItems: "center",
-		fontWeight: "bolder",
-		TextDecodecoration: "none",
-		[theme.breakpoints.up("xs")]: {
-			display: "flex",
-			flexDirection: "column",
-		},
-		"&hover": {
-			cursor: "pointer",
-			TextDecodecoration: "none",
-		},
+	title: {
+		color: theme.palette.text.primary,
+		textOveflow: "elipsis",
+		width: "230px",
+		whiteSpace: "nowrap",
+		overflow: "hidden",
+		marginTop: "10px",
+		marginBottom: 0,
+		textAlign: "center",
 	},
 }));
